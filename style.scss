@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+$text100: hsl(193, 38%, 86%);
+$accent400: hsl(150, 100%, 66%);
+
+$neutral400: hsl(217, 19%, 38%);
+$neutral500: hsl(217, 19%, 24%);
+$neutral600: hsl(218, 23%, 16%);
+
+html {
+	font-size: 28px;
+	font-family: "Manrope", sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	background-color: $neutral600;
+}
+
+main {
+	position: relative;
+	padding: 1rem;
+	margin: 0 0.7rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $neutral500;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.5rem 2rem 0 hsla(0, 0, 0, 0.1);
+	min-width: 5rem;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 0.5rem;
+	color: $accent400;
+	letter-spacing: 0.5em;
+	margin: 0;
+}
+
+p {
+	font-size: 1rem;
+	color: $text100;
+	text-align: center;
+}
+
+.divider {
+	background-image: url("./images/pattern-divider-mobile.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 1.5rem;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.randomize {
+	position: absolute;
+	bottom: -1.5rem;
+	border: none;
+	background-color: $accent400;
+	height: 3rem;
+	width: 3rem;
+	border-radius: 100%;
+	background-image: url("./images/icon-dice.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1.3rem;
+	cursor: pointer;
+	transition: box-shadow 0.2s;
+
+	&:hover {
+		box-shadow: 0 0 1rem 0rem $accent400;
+	}
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+	main {
+		width: 33vw;
+		min-width: 10rem;
+	}
+}

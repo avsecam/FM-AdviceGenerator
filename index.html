@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Advice generator app</title>
+</head>
+<body>
+
+  <main>
+    <h1>Advice #</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum corporis laudantium similique quae fugiat dolores minima eligendi deserunt aperiam?</p>
+    <div class="divider"></div>
+    <button class="randomize"></button>
+  </main>
+
+  <script>
+    let apiUrl = "https://api.adviceslip.com/advice"
+
+    let adviceNumberElement = document.querySelector("h1")
+    let adviceElement = document.querySelector("p")
+    let divider = document.querySelector(".divider")
+    let randomizeButton = document.querySelector(".randomize")
+
+    randomizeButton.addEventListener("click", () => {
+      divider.hidden = true
+      adviceNumberElement.innerText = ""
+      adviceElement.innerText = ""
+      fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => {
+          divider.hidden = false
+          adviceNumberElement.innerText = `Advice #${data.slip.id}`
+          adviceElement.innerText = `"${data.slip.advice}"`
+        })
+    })
+  </script>
+</body>
+</html>
